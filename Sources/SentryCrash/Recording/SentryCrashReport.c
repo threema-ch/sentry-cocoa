@@ -1188,10 +1188,13 @@ static void writeThread(const SentryCrashReportWriter* const writer,
         {
             writeBacktrace(writer, SentryCrashField_Backtrace, &stackCursor);
         }
+        // Do not write/send any CPU states
+        /*
         if(sentrycrashmc_canHaveCPUState(machineContext))
         {
             writeRegisters(writer, SentryCrashField_Registers, machineContext);
         }
+        */
         writer->addIntegerElement(writer, SentryCrashField_Index, threadIndex);
         const char* name = sentrycrashccd_getThreadName(thread);
         if(name != NULL)

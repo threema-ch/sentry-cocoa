@@ -24,63 +24,63 @@
 // THE SOFTWARE.
 //
 
-
 #import <XCTest/XCTest.h>
 
 #import "SentryCrashSignalInfo.h"
 
-
-@interface SentryCrashSignalInfo_Tests : XCTestCase @end
-
+@interface SentryCrashSignalInfo_Tests : XCTestCase
+@end
 
 @implementation SentryCrashSignalInfo_Tests
 
-- (void) testSignalName
+- (void)testSignalName
 {
-    NSString* expected = @"SIGBUS";
-    NSString* actual = [NSString stringWithCString:sentrycrashsignal_signalName(SIGBUS) encoding:NSUTF8StringEncoding];
-    XCTAssertEqualObjects(actual, expected, @"");
-}
-
-- (void) testHighSignalName
-{
-    const char* result = sentrycrashsignal_signalName(90);
-    XCTAssertTrue(result == NULL, @"");
-}
-
-- (void) testNegativeSignalName
-{
-    const char* result = sentrycrashsignal_signalName(-1);
-    XCTAssertTrue(result == NULL, @"");
-}
-
-- (void) testSignalCodeName
-{
-    NSString* expected = @"BUS_ADRERR";
-    NSString* actual = [NSString stringWithCString:sentrycrashsignal_signalCodeName(SIGBUS, BUS_ADRERR)
+    NSString *expected = @"SIGBUS";
+    NSString *actual = [NSString stringWithCString:sentrycrashsignal_signalName(SIGBUS)
                                           encoding:NSUTF8StringEncoding];
     XCTAssertEqualObjects(actual, expected, @"");
 }
 
-- (void) testHighSignalCodeName
+- (void)testHighSignalName
 {
-    const char* result = sentrycrashsignal_signalCodeName(SIGBUS, 90);
+    const char *result = sentrycrashsignal_signalName(90);
     XCTAssertTrue(result == NULL, @"");
 }
 
-- (void) testNegativeSignalCodeName
+- (void)testNegativeSignalName
 {
-    const char* result = sentrycrashsignal_signalCodeName(SIGBUS, -1);
+    const char *result = sentrycrashsignal_signalName(-1);
     XCTAssertTrue(result == NULL, @"");
 }
 
-- (void) testFatalSignals
+- (void)testSignalCodeName
 {
-    const int* fatalSignals = sentrycrashsignal_fatalSignals();
+    NSString *expected = @"BUS_ADRERR";
+    NSString *actual =
+        [NSString stringWithCString:sentrycrashsignal_signalCodeName(SIGBUS, BUS_ADRERR)
+                           encoding:NSUTF8StringEncoding];
+    XCTAssertEqualObjects(actual, expected, @"");
+}
+
+- (void)testHighSignalCodeName
+{
+    const char *result = sentrycrashsignal_signalCodeName(SIGBUS, 90);
+    XCTAssertTrue(result == NULL, @"");
+}
+
+- (void)testNegativeSignalCodeName
+{
+    const char *result = sentrycrashsignal_signalCodeName(SIGBUS, -1);
+    XCTAssertTrue(result == NULL, @"");
+}
+
+- (void)testFatalSignals
+{
+    const int *fatalSignals = sentrycrashsignal_fatalSignals();
     XCTAssertTrue(fatalSignals != NULL, @"");
 }
 
-- (void) testNumFatalSignals
+- (void)testNumFatalSignals
 {
     int numSignals = sentrycrashsignal_numFatalSignals();
     XCTAssertTrue(numSignals > 0, @"");

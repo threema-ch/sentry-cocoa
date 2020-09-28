@@ -1,14 +1,6 @@
-//
-//  SentryNSDataCompressionTests.m
-//  Sentry
-//
-//  Created by Daniel Griesser on 08/05/2017.
-//  Copyright © 2017 Sentry. All rights reserved.
-//
-
-#import <XCTest/XCTest.h>
-#import <Sentry/Sentry.h>
 #import "NSData+SentryCompression.h"
+#import <Sentry/Sentry.h>
+#import <XCTest/XCTest.h>
 
 @interface SentryNSDataCompressionTests : XCTestCase
 
@@ -16,11 +8,12 @@
 
 @implementation SentryNSDataCompressionTests
 
-- (void)testCompress {
+- (void)testCompress
+{
     NSUInteger numBytes = 1000000;
     NSMutableData *data = [NSMutableData dataWithCapacity:numBytes];
     for (NSUInteger i = 0; i < numBytes; i++) {
-        unsigned char byte = (unsigned char) i;
+        unsigned char byte = (unsigned char)i;
         [data appendBytes:&byte length:1];
     }
 
@@ -31,7 +24,8 @@
     XCTAssertNotNil(compressed);
 }
 
-- (void)testCompressEmpty {
+- (void)testCompressEmpty
+{
     NSError *error = nil;
     NSData *original = [NSData data];
     NSData *compressed = [original sentry_gzippedWithCompressionLevel:-1 error:&error];
@@ -40,11 +34,12 @@
     XCTAssertEqualObjects(compressed, original, @"");
 }
 
-- (void)testCompressNilError {
+- (void)testCompressNilError
+{
     NSUInteger numBytes = 1000;
     NSMutableData *data = [NSMutableData dataWithCapacity:numBytes];
     for (NSUInteger i = 0; i < numBytes; i++) {
-        unsigned char byte = (unsigned char) i;
+        unsigned char byte = (unsigned char)i;
         [data appendBytes:&byte length:1];
     }
 
@@ -53,18 +48,20 @@
     XCTAssertNotNil(compressed);
 }
 
-- (void)testCompressEmptyNilError {
+- (void)testCompressEmptyNilError
+{
     NSData *original = [NSData data];
     NSData *compressed = [original sentry_gzippedWithCompressionLevel:-1 error:nil];
 
     XCTAssertEqualObjects(compressed, original, @"");
 }
 
-- (void)testBogusParamerte {
+- (void)testBogusParamerte
+{
     NSUInteger numBytes = 1000;
     NSMutableData *data = [NSMutableData dataWithCapacity:numBytes];
     for (NSUInteger i = 0; i < numBytes; i++) {
-        unsigned char byte = (unsigned char) i;
+        unsigned char byte = (unsigned char)i;
         [data appendBytes:&byte length:1];
     }
 

@@ -1,5 +1,194 @@
 # Changelog
 
+## 5.2.2
+
+- feat: Add crashedLastRun to SentrySDK #688
+
+## 5.2.1
+
+- fix: Add IP address to user serialization #665
+- fix: Crash in SentryEnvelope.initWithEvent #643
+- fix: Build failure for Apple Silicon Macs #588
+- feat: capture userinfo from NSError and NSException #679
+
+## 5.2.0
+
+- fix: nxgetlocalarch app store #651
+
+## 5.1.10
+
+- fix: Crash when converting Recrash Report #627
+- feat: Add SdkInfo to Envelope Header #626
+- fix: Deserialize envelope with header and item #620
+- fix: Set LogLevel in startWithConfigureOptions #613
+
+## 5.1.10-beta.0
+
+- fix: Abnormal sessions #607
+
+## 5.1.9
+
+- fix: beforeSend callback in SentryClient #608
+
+## 5.1.8
+
+- fix: Cocoapods build
+
+## 5.1.7
+
+- fix: Overwriting stack trace for crashes #605
+- fix: Deployment target warning for Swift Package Manager for Xcode 12 #586
+
+## 5.1.6
+
+- feat: Simplified SDK start #580
+- fix: Custom release name for crash reports #590
+
+## 5.1.5
+
+- feat: Attach the stacktrace to custom events #583
+- fix: SentryCrashJSON encodeObject crash #576
+- feat: Added automatic breadcrumbs for system events #559
+
+## 5.1.4
+
+- fix: Increase max report length #569
+- fix: Remove weak ref file contents #571
+
+## 5.1.3
+
+- fix: UUID for SentryCrashReport is null #566
+
+## 5.1.2
+
+- feat: Attach stacktrace of current thread to events #561
+
+## 5.1.1
+
+- fix: Prefix categories methods with sentry #555
+- feat: Attach DebugMeta to Events #545
+- fix: Duplicate symbol for SentryMeta #549
+- feat: Set SUPPORTS_MACCATALYST to YES explicitly #547
+
+## 5.1.0
+
+- fix: Make properties of Session readonly #541
+- fix: Remove MemoryWarningIntegration #537
+- fix: Avoid Implicit conversion in SentrySession #540
+- fix: Change SentryScope setTagValue to NSString #524
+
+## 5.0.5
+
+- feat: Add remove methods for SentryScope #529
+- fix: Failing MacOS build #530
+- ref: Session values are unsigned #527
+
+## 5.0.4
+
+- fix: End file at the right place with #ifdef #521
+
+## 5.0.3
+
+- fix: Exit session with timestamp #518
+- feat: Add sentry_sanitize for NSArray #509
+
+## 5.0.2
+
+- fix: Keep maximum rate limit #498
+- fix: Ignore unknown rate limit categories #497
+- fix: On app exit, close session as healthy #500
+
+## 5.0.1
+
+- fix: Flakey concurrent test for RateLimits #493
+- fix: missing breadcrumbs data on hardcrash #492
+
+## 5.0.0
+
+- GA of major version 5
+
+## 5.0.0-rc.1
+
+- feat: Add support for mac catalyst #479
+- fix: RateLimitCategories #482
+- fix: RetryAfter treated like all categories #481
+- feat: RateLimiting for cached events and envelopes #480
+- fix: EnvelopeRateLimit init envelope with header #478
+
+## 5.0.0-beta.7
+
+- feat: RateLimit for non cached Envelopes #476
+- fix: Use RateLimitCategoryError for events #470
+- feat: Store SentryEnvelopes in extra path #468
+- feat: Adds setUser to SentrySDK and SentryHub #467
+- feat: Add auto session starting for macOS #463
+- fix: Take release name from options #462
+- feat: Use new envelope endpoint #475
+- feat: App lifecycle events as breadcrumbs #474
+
+## 5.0.0-beta.6
+
+- feat: RateLimit for sendAllStoredEvents #458
+- fix: Use maxBreadcrumbs from options #451
+- fix: Send vmaddr if available for apple crash reports #459
+
+## 5.0.0-beta.5
+
+- fix: Limit number of breadcrumbs #450
+
+## 5.0.0-beta.4
+
+- feat: Add Sentry initialization function 'start' #441
+- fix: Crashed sessions are marked as such #448
+
+## 5.0.0-beta.3
+
+- fix: Persisting Scope with CrashReport
+- fix: Frame in app detection #438
+- fix: Session ending as Crashed #439
+
+## 5.0.0-beta.2
+
+- fix: The order of how integrations are initialized (fixes not sending crashes on startup)
+- fix: Add missing header files to umbrella header
+
+## 5.0.0-beta.1
+
+- feat: Added Session Feature
+- feat: New option `enableAutoSessionTracking` set to `true` if you want sessions to be enabled
+- feat: Add `_crashOnException:` to handle exceptions for AppKit apps on macOS
+
+## 5.0.0-beta.0
+
+- feat: Added internal `captureEnvelope` method
+
+## 5.0.0-alpha.0
+
+**_BREAKING_**: This is the first public release of our new `5.0.0` #339 version of the SDK.
+The majority of the public API of the SDK changed, now it's more streamlined with other Sentry SDKs and prepared for future updates.
+Please read the migration guide how to use the new SDK [MIGRATION.MD](MIGRATION.md)
+
+## 4.5.0
+
+- fix: Mac Catalyst detection
+- fix: Add null checks in crash reporter
+- fix: Check type of key before use it as NSString (#383)
+- fix: Use rawKey to get object from dictionary (#392)
+- fix: Change instantiating SentryMechanism of unknown exception type (#385)
+
+## 4.4.3
+
+- feat: Swift Package Manager support #352
+- fix: travis lane lint #345
+
+## 4.4.2
+
+- feat: Prefer snprintf over sprintf #342
+
+## 4.4.1
+
+- feat: Add support for custom context and event types
+
 ## 4.4.0
 
 - feat: Helper property on event to send raw payload

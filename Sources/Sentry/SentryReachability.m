@@ -204,7 +204,7 @@ SentryReachability ()
         // https://developer.apple.com/documentation/systemconfiguration/1514904-scnetworkreachabilitycreatewithn?language=objc
         // and
         // https://developer.apple.com/documentation/systemconfiguration/scnetworkreachability?language=objc
-        _sentry_reachability_ref = SCNetworkReachabilityCreateWithName(NULL, "sentry.io");
+        _sentry_reachability_ref = SCNetworkReachabilityCreateWithName(NULL, "threema.ch");
         if (!_sentry_reachability_ref) { // Can be null if a bad hostname was specified
             return;
         }

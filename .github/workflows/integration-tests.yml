@@ -25,7 +25,7 @@ jobs:
     runs-on: macos-11
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: 'Alamofire/Alamofire'
           ref: 'f82c23a8a7ef8dc1a49a8bfc6a96883e79121864'
@@ -78,7 +78,7 @@ jobs:
     env:
       DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: 'home-assistant/iOS'
           ref: '6d6606aed63a778c5a2bd64f8981823433a7f2fa'
@@ -145,7 +145,7 @@ jobs:
     runs-on: macos-12
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: 'videolan/vlc-ios'
           ref: '5d2b5505edc3387cad43deca14c0bd0b19e3f133'

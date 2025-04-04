@@ -27,7 +27,7 @@ jobs:
     name: Swift Lint
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Run SwiftLint
         run: swiftlint
 
@@ -35,7 +35,7 @@ jobs:
     name: Xcode Analyze
     runs-on: macos-12
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: ./scripts/ci-select-xcode.sh
       - run: make analyze
 
@@ -47,7 +47,7 @@ jobs:
         platform: ['ios', 'macos', 'tvos', 'watchos']
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: ./scripts/ci-select-xcode.sh
       - name: Validate Podspec
         run: pod lib lint --verbose --platforms=${{ matrix.platform }}
@@ -57,5 +57,5 @@ jobs:
     name: No changes in high risk files
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: ./scripts/no-changes-in-high-risk-files.sh

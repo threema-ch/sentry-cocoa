@@ -9,7 +9,7 @@ import Testing
   #expect(checkForUpdatesParams.accessToken == token)
   #expect(checkForUpdatesParams.organization == org)
   #expect(checkForUpdatesParams.project == project)
-  #expect(checkForUpdatesParams.hostname == "us.sentry.io")
+  #expect(checkForUpdatesParams.hostname == "threema.com")
   #expect(checkForUpdatesParams.appIdOverride == nil)
   #expect(checkForUpdatesParams.binaryIdentifierOverride == nil)
 }

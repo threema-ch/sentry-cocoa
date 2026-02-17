@@ -7,7 +7,7 @@ public struct CheckForUpdateParams {
   ///   - accessToken: Bearer token for authentication with Sentry API
   ///   - organization: Sentry organization slug
   ///   - project: Sentry project slug
-  ///   - hostname: Sentry hostname (defaults to "us.sentry.io")
+  ///   - hostname: Sentry hostname (defaults to "threema.com")
   ///   - binaryIdentifierOverride: Optional UUID override for the main binary
   ///   - appIdOverride: Optional bundle identifier override
   ///   - installGroupsOverride: Optional override of the install groups
@@ -15,7 +15,7 @@ public struct CheckForUpdateParams {
     accessToken: String,
     organization: String,
     project: String,
-    hostname: String = "us.sentry.io",
+    hostname: String = "threema.com",
     binaryIdentifierOverride: String? = nil,
     appIdOverride: String? = nil,
     installGroupsOverride: [String]? = nil) {
